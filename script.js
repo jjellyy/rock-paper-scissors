@@ -13,6 +13,18 @@ function getComputerChoice () {
     }
 }
 
+function getPlayerChoice() {
+    let choice = window.prompt("Rock, paper or scissors? Make your choice.")
+    choice = choice.toLowerCase().trim();
+    while (true) {
+        if (choice == "rock" || choice == "scissors" || choice =="paper") {
+            break;
+        }
+        choice = window.prompt("Please choose rock, paper or scissors.")
+    }
+    return choice;
+}
+
 function getRandom () {
     const floatRandom = Math.random()
     const difference = 2
@@ -62,3 +74,12 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+//function game() {
+  //  let playerScore = 0;
+    //let computerScore = 0;
+    //let result;
+    //for (let i = 0; i < 5; i++) {
+    //    result = playRound(, getComputerChoice());
+    //}
+//}
