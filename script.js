@@ -75,11 +75,25 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//function game() {
-  //  let playerScore = 0;
-    //let computerScore = 0;
-    //let result;
-    //for (let i = 0; i < 5; i++) {
-    //    result = playRound(, getComputerChoice());
-    //}
-//}
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let result;
+    for (let i = 0; i < 5; i++) {
+        result = playRound(getPlayerChoice(), getComputerChoice());
+        if (result == "win") {
+            playerScore++;
+        } else if (result == "lose") {
+            computerScore++;
+        } else {
+
+        }        
+    }
+    if (playerScore > computerScore) {
+        console.log("You win " + playerScore + " to " + computerScore)
+    } else if (computerScore > playerScore) {
+        console.log("You lose " + playerScore + " to " + computerScore)
+    } else {
+        console.log("It's a draw")
+    }
+}
