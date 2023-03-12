@@ -40,36 +40,43 @@ function playRound(e) {
     const playerChoice = e.target.id;
     const computerChoice = getComputerChoice();
     if (playerChoice == computerChoice) {
-        console.log("It's a draw!")
+        results.innerHTML = `Computer chose ${computerChoice}.<br>
+        It's a draw!`
         return "draw";
     } else {
         switch (playerChoice) {
             case "rock":
                 switch (computerChoice) {
                     case "scissors":
-                        console.log("You win! Rock beats scissors.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br> 
+                        You win! Rock beats scissors.`
                         return "win";
                     case "paper":
-                        console.log("You lose! Paper beats rock.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br>
+                        You lose! Paper beats rock.`
                         return "lose";              
                 }
                 break;
             case "paper":
                 switch (computerChoice) {
                     case "rock":
-                        console.log("You win! Paper beats rock.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br>
+                        You win! Paper beats rock.`
                         return "win";
                     case "scissors":
-                        console.log("You lose! Scissors beat paper.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br>
+                        You lose! Scissors beat paper.`
                         return "lose";  
                 }
             case "scissors":
                 switch (computerChoice) {
                     case "rock":
-                        console.log("You lose! Rock beats scissors.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br>
+                        You lose! Rock beats scissors.`
                         return "lose";  
                     case "paper":
-                        console.log("You win! Scissors beats paper.")
+                        results.innerHTML = `Computer chose ${computerChoice}.<br>
+                        "You win! Scissors beats paper.`
                         return "win";
                 }
         }
@@ -100,6 +107,7 @@ function game() {
 }
 */
 const buttons = document.querySelectorAll(".choice");
+const results = document.querySelector(".results");
 buttons.forEach(btn => {
     btn.addEventListener('click', playRound);
 });
