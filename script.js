@@ -2,17 +2,18 @@ function getComputerChoice () {
     let choice = getRandom()
     switch (choice) {
         case 1:
-            return "Rock";
+            return "rock";
             break;
         case 2:
-            return "Paper";
+            return "paper";
             break;
         case 3:
-            return "Scissors";
+            return "scissors";
             break;
     }
 }
 
+/*
 function getPlayerChoice() {
     let choice = window.prompt("Rock, paper or scissors? Make your choice.")
     choice = choice.toLowerCase().trim();
@@ -24,6 +25,7 @@ function getPlayerChoice() {
     }
     return choice;
 }
+*/
 
 function getRandom () {
     const floatRandom = Math.random()
@@ -34,10 +36,9 @@ function getRandom () {
     return randomWithinRange;
 }
 
-function playRound(playerSelection, computerSelection) {
-    const playerChoice = playerSelection.toLowerCase().trim();
-    const computerChoice = computerSelection.toLowerCase();
-    
+function playRound(e) {
+    const playerChoice = e.target.id;
+    const computerChoice = getComputerChoice();
     if (playerChoice == computerChoice) {
         console.log("It's a draw!")
         return "draw";
@@ -74,7 +75,7 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-
+/*
 function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -97,3 +98,8 @@ function game() {
         console.log("It's a draw")
     }
 }
+*/
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach(btn => {
+    btn.addEventListener('click', playRound);
+});
